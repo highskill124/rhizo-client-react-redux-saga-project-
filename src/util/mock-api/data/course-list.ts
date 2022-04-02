@@ -1,0 +1,98 @@
+export const courseList = [
+    {
+        title: 'CS',
+        totalSessions: 56,
+        hoursTaught: 45,
+        verified: false,
+    },
+    {
+        title: 'Auto Mechanics',
+        totalSessions: 56,
+        hoursTaught: 45,
+        verified: true,
+    },
+    {
+        title: 'Mechanics',
+        totalSessions: 56,
+        hoursTaught: 45,
+        verified: true,
+    },
+    {
+        title: 'Auto Mechanics',
+        totalSessions: 56,
+        hoursTaught: 45,
+        verified: true,
+    },
+    {
+        title: 'CS',
+        totalSessions: 56,
+        hoursTaught: 45,
+        verified: true,
+    },
+    {
+        title: 'Auto Mechanics',
+        totalSessions: 56,
+        hoursTaught: 45,
+        verified: false,
+    },
+    {
+        title: 'Mechanics',
+        totalSessions: 56,
+        hoursTaught: 45,
+        verified: true,
+    },
+    {
+        title: 'Auto Mechanics',
+        totalSessions: 56,
+        hoursTaught: 45,
+        verified: false,
+    },
+    {
+        title: 'CS',
+        totalSessions: 56,
+        hoursTaught: 45,
+        verified: false,
+    },
+    {
+        title: 'Auto Mechanics',
+        totalSessions: 56,
+        hoursTaught: 45,
+        verified: true,
+    },
+    {
+        title: 'Mechanics',
+        totalSessions: 56,
+        hoursTaught: 45,
+        verified: true,
+    },
+    {
+        title: 'Auto Mechanics',
+        totalSessions: 56,
+        hoursTaught: 45,
+        verified: true,
+    },
+    {
+        title: 'CS',
+        totalSessions: 56,
+        hoursTaught: 45,
+        verified: true,
+    },
+    {
+        title: 'Auto Mechanics',
+        totalSessions: 56,
+        hoursTaught: 45,
+        verified: false,
+    },
+    {
+        title: 'Mechanics',
+        totalSessions: 56,
+        hoursTaught: 45,
+        verified: true,
+    },
+    {
+        title: 'Auto Mechanics',
+        totalSessions: 56,
+        hoursTaught: 45,
+        verified: false,
+    },
+];

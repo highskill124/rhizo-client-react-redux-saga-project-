@@ -1,0 +1,17 @@
+build/
+dist/
+assets/
+config/
+node_modules/
+public/
+script/
+persist/
+stats/
+.git/
+coverage/
+
+@types
+
+src/serviceWorker.ts
+src/stories/
+storybook-static/

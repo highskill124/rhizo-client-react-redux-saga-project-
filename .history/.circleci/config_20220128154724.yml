@@ -1,0 +1,55 @@
+version: 2.1
+orbs:
+    node: circleci/node@4.7.0
+
+jobs:
+    build:
+        working_directory: ~/rhizo-client
+        docker:
+            - image: cimg/python:3.7-node
+        steps:
+            - checkout
+            - node/install-packages:
+                  pkg-manager: yarn
+            - run:
+                  name: Install local dependencies
+                  command: yarn install
+            - run:
+                  command: |
+                      CI=false && yarn run-script build
+                  name: Build app
+            - run:
+                  name: Packaging build
+                  command: |
+                      mkdir ~/rhizo-client/frontend/
+                      mkdir ~/rhizo-client/frontend/builds
+                      cd build
+                      zip -r ~/rhizo-client/frontend/builds/build.zip . *
+            #- store_artifacts:
+            #    path: /tmp/builds
+            - persist_to_workspace:
+                  root: ~/
+                  paths: rhizo-client/frontend/builds
+    deploy: # this can be any name you choose
+        working_directory: ~/rhizo-client
+        machine:
+            enabled: true
+        steps:
+            - checkout
+            - attach_workspace:
+                  at: ~/
+            - run:
+                  name: 'Deploy Master to Ditial Ocean Droplet'
+                  command: |
+                      scp ~/rhizo-client/frontend/builds/build.zip "$SSH_USER@$SSH_HOST:/home/web-applications/var/www/app.rhizo.us/"
+                      ssh $SSH_USER@$SSH_HOST "cd /home/web-applications/var/www/app.rhizo.us && unzip -o build.zip && rm build.zip"
+workflows:
+    build-deploy:
+        jobs:
+            - build
+            - deploy:
+                  requires:
+                      - build
+                  filters:
+                      branches:
+                          only: master
